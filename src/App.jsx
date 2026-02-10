@@ -1,5 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Search, User, Trash2, Plus, Minus, CreditCard, Wallet, DollarSign, Receipt, X, Menu } from 'lucide-react';
+import {
+  Search,
+  User,
+  Trash2,
+  Plus,
+  Minus,
+  CreditCard,
+  Wallet,
+  DollarSign,
+  Receipt,
+  X,
+  Menu,
+  Box,
+  RotateCcw,
+  Pause,
+  Printer,
+  Gift,
+} from "lucide-react";
 
 const POSSystem = () => {
   const [cart, setCart] = useState([
@@ -14,27 +31,66 @@ const POSSystem = () => {
   const [showCustomerDetails, setShowCustomerDetails] = useState(false);
 
   // Sample product data
-  const products = [
-    { id: 1, name: 'Grilled Chicken', price: 12.99, image: '🍗', category: 'Main Course' },
-    { id: 2, name: 'Margherita Pizza', price: 14.99, image: '🍕', category: 'Pizza' },
-    { id: 3, name: 'Chocolate Cake', price: 6.99, image: '🍰', category: 'Dessert' },
-    { id: 4, name: 'Cappuccino', price: 4.50, image: '☕', category: 'Beverages' },
-    { id: 5, name: 'Fresh Juice', price: 5.99, image: '🥤', category: 'Beverages' },
-    { id: 6, name: 'Caesar Salad', price: 8.99, image: '🥗', category: 'Salads' },
-    { id: 7, name: 'Beef Burger', price: 11.99, image: '🍔', category: 'Main Course' },
-    { id: 8, name: 'Spaghetti', price: 13.50, image: '🍝', category: 'Pasta' },
-    { id: 9, name: 'Cheesecake', price: 7.50, image: '🍰', category: 'Dessert' },
-    { id: 10, name: 'Iced Coffee', price: 4.99, image: '🧋', category: 'Beverages' },
-    { id: 11, name: 'Greek Salad', price: 9.50, image: '🥗', category: 'Salads' },
-    { id: 12, name: 'BBQ Ribs', price: 16.99, image: '🍖', category: 'Main Course' },
-    { id: 13, name: 'Pepperoni Pizza', price: 15.99, image: '🍕', category: 'Pizza' },
-    { id: 14, name: 'Pasta Carbonara', price: 14.50, image: '🍝', category: 'Pasta' },
-    { id: 15, name: 'Tiramisu', price: 7.99, image: '🍮', category: 'Dessert' },
-    { id: 16, name: 'Latte', price: 4.75, image: '☕', category: 'Beverages' },
-  ];
+const products = [
+  {
+    id: 1,
+    name: "Paracetamol 500mg",
+    price: 2.5,
+    image: "💊",
+    category: "Pain Relief",
+  },
+  {
+    id: 2,
+    name: "Amoxicillin 250mg",
+    price: 5.0,
+    image: "💉",
+    category: "Antibiotics",
+  },
+  { id: 3, name: "Vitamin C", price: 3.0, image: "🍊", category: "Vitamins" },
+  { id: 4, name: "Cough Syrup", price: 4.75, image: "🧴", category: "Syrups" },
+  { id: 5, name: "Insulin", price: 12.0, image: "💉", category: "Diabetes" },
+  {
+    id: 6,
+    name: "Blood Pressure Monitor",
+    price: 35.0,
+    image: "🩺",
+    category: "Devices",
+  },
+  {
+    id: 7,
+    name: "Paracetamol 500mg",
+    price: 2.5,
+    image: "💊",
+    category: "Pain Relief",
+  },
+  {
+    id:8,
+    name: "Amoxicillin 250mg",
+    price: 5.0,
+    image: "💉",
+    category: "Antibiotics",
+  },
+  { id: 9, name: "Vitamin C", price: 3.0, image: "🍊", category: "Vitamins" },
+  { id: 10, name: "Cough Syrup", price: 4.75, image: "🧴", category: "Syrups" },
+  { id: 11, name: "Insulin", price: 12.0, image: "💉", category: "Diabetes" },
+  {
+    id: 12,
+    name: "Blood Pressure Monitor",
+    price: 35.0,
+    image: "🩺",
+    category: "Devices",
+  },
+];
 
-  const categories = ['All', 'Main Course', 'Pizza', 'Pasta', 'Salads', 'Dessert', 'Beverages'];
-
+const categories = [
+  "All",
+  "Pain Relief",
+  "Antibiotics",
+  "Vitamins",
+  "Syrups",
+  "Diabetes",
+  "Devices",
+];
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
@@ -79,7 +135,6 @@ const POSSystem = () => {
   const removeFromCart = (id) => {
     setCart(cart.filter(item => item.id !== id));
   };
-
   const handleNumberPad = (value) => {
     if (value === 'C') {
       setReceivedAmount('0');
@@ -412,7 +467,7 @@ const POSSystem = () => {
           align-items: center;
           justify-content: space-between;
           cursor: pointer;
-          margin-bottom: ${showCustomerDetails ? '12px' : '0'};
+          margin-bottom: ${showCustomerDetails ? "12px" : "0"};
         }
 
         .customer-title {
@@ -425,7 +480,7 @@ const POSSystem = () => {
         }
 
         .customer-details {
-          display: ${showCustomerDetails ? 'flex' : 'none'};
+          display: ${showCustomerDetails ? "flex" : "none"};
           flex-direction: column;
           gap: 10px;
         }
@@ -727,10 +782,10 @@ const POSSystem = () => {
       <div className="products-panel">
         <div className="header">
           <div className="brand">
-            <div className="brand-logo">🍽️</div>
+            <div className="brand-logo">💊</div>
             <div className="brand-info">
-              <h1>Kalyan Hypermarkets</h1>
-              <p>Point of Sale System</p>
+              <h1>Pharmacy POS System</h1>
+              <p>Medical & Pharmacy Point of Sale</p>
             </div>
           </div>
           <div className="session-info">
@@ -743,7 +798,7 @@ const POSSystem = () => {
           <Search size={20} />
           <input
             type="text"
-            placeholder="Search products or scan barcode..."
+            placeholder="Search medicine or scan barcode..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -753,7 +808,7 @@ const POSSystem = () => {
           {categories.map((category) => (
             <button
               key={category}
-              className={`category-btn ${selectedCategory === category ? 'active' : ''}`}
+              className={`category-btn ${selectedCategory === category ? "active" : ""}`}
               onClick={() => setSelectedCategory(category)}
             >
               {category}
@@ -778,14 +833,18 @@ const POSSystem = () => {
 
       {/* Right Panel - Cart & Checkout */}
       <div className="checkout-panel">
+        {/* 
         <div className="customer-section">
-          <div className="customer-header" onClick={() => setShowCustomerDetails(!showCustomerDetails)}>
+          <div
+            className="customer-header"
+            onClick={() => setShowCustomerDetails(!showCustomerDetails)}
+          >
             <div className="customer-title">
               <User size={18} />
-              Customer Details
+              Patient Details
             </div>
-            <span style={{ color: 'var(--text-secondary)', fontSize: '12px' }}>
-              {showCustomerDetails ? '▼' : '▶'}
+            <span style={{ color: "var(--text-secondary)", fontSize: "12px" }}>
+              {showCustomerDetails ? "▼" : "▶"}
             </span>
           </div>
           <div className="customer-details">
@@ -822,18 +881,31 @@ const POSSystem = () => {
                   <div key={item.id} className="cart-item">
                     <div className="item-name">{item.name}</div>
                     <div className="quantity-control">
-                      <button className="qty-btn" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                      <button
+                        className="qty-btn"
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity - 1)
+                        }
+                      >
                         <Minus size={14} />
                       </button>
                       <span className="qty-value">{item.quantity}</span>
-                      <button className="qty-btn" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                      <button
+                        className="qty-btn"
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity + 1)
+                        }
+                      >
                         <Plus size={14} />
                       </button>
                     </div>
                     <div className="item-value">${item.discount}</div>
                     <div className="item-value">${item.tax}</div>
                     <div className="item-value">${item.netValue}</div>
-                    <button className="delete-btn" onClick={() => removeFromCart(item.id)}>
+                    <button
+                      className="delete-btn"
+                      onClick={() => removeFromCart(item.id)}
+                    >
                       <Trash2 size={16} />
                     </button>
                   </div>
@@ -843,8 +915,18 @@ const POSSystem = () => {
           ) : (
             <div className="empty-cart">
               <Receipt size={64} />
-              <p style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px' }}>Cart is empty</p>
-              <p style={{ fontSize: '14px' }}>Add items from the menu to get started</p>
+              <p
+                style={{
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  marginBottom: "8px",
+                }}
+              >
+                Cart is empty
+              </p>
+              <p style={{ fontSize: "14px" }}>
+                Add items from the menu to get started
+              </p>
             </div>
           )}
         </div>
@@ -852,47 +934,51 @@ const POSSystem = () => {
         <div className="payment-section">
           <div className="received-label">Received Amount</div>
           <div className="number-pad">
-            {['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '00', '.'].map((num) => (
-              <button
-                key={num}
-                className="num-btn"
-                onClick={() => handleNumberPad(num)}
-              >
-                {num}
-              </button>
-            ))}
+            {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "00", "."].map(
+              (num) => (
+                <button
+                  key={num}
+                  className="num-btn"
+                  onClick={() => handleNumberPad(num)}
+                >
+                  {num}
+                </button>
+              ),
+            )}
           </div>
-          <div style={{ 
-            padding: '16px', 
-            background: 'white', 
-            borderRadius: '12px', 
-            textAlign: 'center',
-            fontSize: '24px',
-            fontWeight: '700',
-            fontFamily: 'JetBrains Mono, monospace',
-            color: 'var(--primary)',
-            marginBottom: '12px'
-          }}>
+          <div
+            style={{
+              padding: "16px",
+              background: "white",
+              borderRadius: "12px",
+              textAlign: "center",
+              fontSize: "24px",
+              fontWeight: "700",
+              fontFamily: "JetBrains Mono, monospace",
+              color: "var(--primary)",
+              marginBottom: "12px",
+            }}
+          >
             ${receivedAmount}
           </div>
           <div className="payment-buttons">
-            <button 
-              className={`payment-btn ${activePaymentTab === 'wallet' ? 'active' : ''}`}
-              onClick={() => setActivePaymentTab('wallet')}
+            <button
+              className={`payment-btn ${activePaymentTab === "wallet" ? "active" : ""}`}
+              onClick={() => setActivePaymentTab("wallet")}
             >
               <Wallet size={18} />
               Wallet
             </button>
-            <button 
-              className={`payment-btn ${activePaymentTab === 'cash' ? 'active' : ''}`}
-              onClick={() => setActivePaymentTab('cash')}
+            <button
+              className={`payment-btn ${activePaymentTab === "cash" ? "active" : ""}`}
+              onClick={() => setActivePaymentTab("cash")}
             >
               <DollarSign size={18} />
               Cash
             </button>
-            <button 
-              className={`payment-btn ${activePaymentTab === 'card' ? 'active' : ''}`}
-              onClick={() => setActivePaymentTab('card')}
+            <button
+              className={`payment-btn ${activePaymentTab === "card" ? "active" : ""}`}
+              onClick={() => setActivePaymentTab("card")}
             >
               <CreditCard size={18} />
               Card
@@ -911,13 +997,71 @@ const POSSystem = () => {
           </div>
         </div>
 
-        <button className="checkout-btn" onClick={handleCheckout} disabled={cart.length === 0}>
+        <button
+          className="checkout-btn"
+          onClick={handleCheckout}
+          disabled={cart.length === 0}
+        >
           <Receipt size={20} />
           Complete Payment
         </button>
+ */}
+ 
+        <div className="actions-sidebar">
+          <div className="action-card">
+            <div className="action-icon-wrapper bg-hold">
+              <Pause size={20} />
+            </div>
+            <span className="action-label">Hold/Recall</span>
+          </div>
+
+          <div className="action-card">
+            <div className="action-icon-wrapper bg-manage">
+              <Search size={20} />
+            </div>
+            <span className="action-label">Order Mgmt</span>
+          </div>
+
+          <div className="action-card">
+            <div className="action-icon-wrapper bg-void">
+              <X size={20} />
+            </div>
+            <span className="action-label">Void</span>
+          </div>
+
+          <div className="action-card">
+            <div className="action-icon-wrapper bg-return">
+              <RotateCcw size={20} />
+            </div>
+            <span className="action-label">Return</span>
+          </div>
+
+          <div className="action-card">
+            <div className="action-icon-wrapper bg-print">
+              <Printer size={20} />
+            </div>
+            <span className="action-label">Print</span>
+          </div>
+
+          <div className="action-card">
+            <div className="action-icon-wrapper bg-promo">
+              <Gift size={20} />
+            </div>
+            <span className="action-label">Promotion</span>
+          </div>
+
+          <div className="action-card">
+            <div className="action-icon-wrapper bg-combo">
+              <Box size={20} />
+            </div>
+            <span className="action-label">Combo</span>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default POSSystem;
+
+
