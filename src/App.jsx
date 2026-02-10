@@ -833,7 +833,7 @@ const categories = [
 
       {/* Right Panel - Cart & Checkout */}
       <div className="checkout-panel">
-        {/* 
+        
         <div className="customer-section">
           <div
             className="customer-header"
@@ -1005,9 +1005,9 @@ const categories = [
           <Receipt size={20} />
           Complete Payment
         </button>
- */}
+
  
-        <div className="actions-sidebar">
+        {/* <div className="actions-sidebar">
           <div className="action-card">
             <div className="action-icon-wrapper bg-hold">
               <Pause size={20} />
@@ -1056,7 +1056,7 @@ const categories = [
             </div>
             <span className="action-label">Combo</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
